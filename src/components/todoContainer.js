@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import TodoItem from "./todoItem";
 import CreateTodo from "./createTodo";
 import { delet, get, post, put } from "../services/methodsHttp";
+import "./style.css"
 
 export default function TodoContainer () {
     const [ toDos, setToDos ] = useState([]);
@@ -66,11 +67,11 @@ export default function TodoContainer () {
     })
 
     return (
-     <div>
+     <div className="general-information">
          <CreateTodo handleCreate={handleCreate} />
-         <li>
-            {list}
-         </li>
+         <ul  className="general-card">
+            {list} 
+         </ul>
      </div>
     )
 }

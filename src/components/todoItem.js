@@ -1,25 +1,26 @@
 const TodoItem = ({task, student, id, handleDelete, handlePut, isCompleted}) => {
     return (
         <>
-            <li>
+            <li className="cards">
                 Task: {task} <br/> Student: {student} 
+                
+                
+                <input type="checkbox" 
+                    checked={isCompleted}
+                    onChange={() => {
+                            handlePut({
+                                task,
+                                student,
+                                id,
+                                isCompleted: !isCompleted
+                            })
+                    }}
+                className="form-check-input"/>
+                
+                <button onClick={()=> {
+                    handleDelete(id);
+                }} className="btn btn-danger" >DELETE</button>
             </li>
-            
-            <input type="checkbox" 
-                   checked={isCompleted}
-                   onChange={() => {
-                        handlePut({
-                            task,
-                            student,
-                            id,
-                            isCompleted: !isCompleted
-                        })
-                   }}
-            />
-            
-            <button onClick={()=> {
-                handleDelete(id);
-            }} >DELETE</button>
         </>
     )
 }
